@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
 import UserItem from "../UserItem";
 import { setFilter } from "../../redux/actions";
+import styles from "./styles.module.css";
 
 function UserList({ users, filter, setFilter }) {
   const filteredUsers = users.filter((user) => user.name.includes(filter));
   return (
-    <div>
-      <ul>
+    <div className={styles.container}>
+      <ul >
         {filteredUsers.map((user) => (
-          <li key={user.id}>
+          <li className={styles.item} key={user.id}>
             <UserItem user={user} />
           </li>
         ))}
